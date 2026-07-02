@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>プレイグラウンド — 移動ドであそぶ | ドは、どこへでも</title>
+<meta name="description" content="移調キーボード・聴音クイズ・マイク歌唱チェック・メロディ移調プレーヤー。ブラウザだけで動く移動ドの練習場。">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<script>document.documentElement.dataset.theme = localStorage.getItem('domove.theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+        <line x1="1" y1="22" x2="31" y2="22" stroke="var(--line-strong)" stroke-width="1.5"/>
+        <line x1="1" y1="27" x2="31" y2="27" stroke="var(--line-strong)" stroke-width="1.5"/>
+        <circle cx="7" cy="24.5" r="3.4" fill="var(--ink-3)"/>
+        <circle cx="16" cy="17" r="3.4" fill="var(--ink-3)" opacity=".75"/>
+        <circle cx="25.5" cy="8.5" r="4.6" fill="var(--accent)"/>
+      </svg>
+      ドは、どこへでも
+    </a>
+    <nav class="site-nav" aria-label="メイン">
+      <a href="learn.html">まなぶ</a>
+      <a href="playground.html" class="active">あそぶ</a>
+      <button class="theme-toggle" type="button" aria-label="テーマ切り替え"></button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero" style="padding:clamp(40px,6vw,70px) 0 10px">
+    <p class="hero-kicker">PLAYGROUND</p>
+    <h1>あそぶうちに、耳ができる。</h1>
+    <p class="hero-lead">4つの道具はぜんぶつながっています。鳴らして、当てて、歌って、曲にもどる。音が出ます——音量にご注意を。</p>
+  </section>
+
+  <div class="tabs" role="tablist">
+    <button class="tab-btn" role="tab" data-tab="keyboard">🎹 キーボード</button>
+    <button class="tab-btn" role="tab" data-tab="ear">👂 聴音クイズ</button>
+    <button class="tab-btn" role="tab" data-tab="sing">🎤 うたってチェック</button>
+    <button class="tab-btn" role="tab" data-tab="melody">🎵 メロディ</button>
+  </div>
+
+  <!-- ============ キーボード ============ -->
+  <section class="tab-panel" id="tab-keyboard" role="tabpanel">
+    <div class="panel">
+      <h2 class="panel-title">移調キーボード — ドはどこにでも置ける</h2>
+      <div class="controls">
+        <div class="control-group">
+          <span class="control-label">調</span>
+          <select class="select" id="kb-key"></select>
+        </div>
+        <div class="control-group">
+          <span class="control-label">ラベル</span>
+          <div class="seg" id="kb-label">
+            <button data-v="movable" class="active">移動ド</button>
+            <button data-v="both">移動ド+音名</button>
+            <button data-v="fixed">固定ド</button>
+            <button data-v="none">なし</button>
+          </div>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="kb-drone">
+          <span class="track"></span>
+          <span class="switch-label">主音ドローン</span>
+        </label>
+        <button class="btn btn-ghost btn-sm" id="kb-cadence">カデンツを聴く</button>
+        <button class="btn btn-ghost btn-sm" id="kb-scale">音階を聴く</button>
+      </div>
+      <div class="kbd-scroll"><div id="kb-container"></div></div>
+      <p class="small muted" id="kb-info"></p>
+      <p class="small muted">PCなら <b>Z X C V B N M ,</b> のキーで、いまの調のドレミファソラシドが弾けます。調を変えても同じキーのまま——それが移動ドです。</p>
+    </div>
+  </section>
+
+  <!-- ============ 聴音クイズ ============ -->
+  <section class="tab-panel" id="tab-ear" role="tabpanel">
+    <div class="panel">
+      <h2 class="panel-title">聴音クイズ — カデンツで調を感じて、階名を当てる</h2>
+      <div class="controls">
+        <div class="control-group">
+          <span class="control-label">レベル</span>
+          <div class="seg" id="ear-level">
+            <button data-v="1" class="active">1: ド・ミ・ソ</button>
+            <button data-v="2">2: ド〜ソ</button>
+            <button data-v="3">3: 7音ぜんぶ</button>
+            <button data-v="4">4: 半音も</button>
+          </div>
+        </div>
+        <div class="control-group">
+          <span class="control-label">調</span>
+          <div class="seg" id="ear-keymode">
+            <button data-v="random" class="active">毎回ランダム</button>
+            <button data-v="c">ハ長調固定</button>
+          </div>
+        </div>
+      </div>
+      <div class="quiz-stage">
+        <div class="quiz-status" id="ear-keyname">「出題」を押すと、カデンツ(和音)→ 1音が流れます</div>
+        <div class="quiz-big" id="ear-big">?</div>
+        <div class="quiz-status" id="ear-status"></div>
+        <div class="mt-1">
+          <button class="btn btn-primary" id="ear-start">出題</button>
+          <button class="btn btn-ghost" id="ear-replay" disabled>カデンツ+音をもう一度</button>
+          <button class="btn btn-ghost" id="ear-note" disabled>音だけもう一度</button>
+        </div>
+      </div>
+      <div class="syl-row" id="ear-answers" aria-label="こたえ"></div>
+      <div class="quiz-stats">
+        <div class="stat"><div class="stat-num" id="ear-streak">0</div><div class="stat-label">れんぞく</div></div>
+        <div class="stat"><div class="stat-num" id="ear-best">0</div><div class="stat-label">じこべすと</div></div>
+        <div class="stat"><div class="stat-num" id="ear-acc">–</div><div class="stat-label">せいかいりつ</div></div>
+        <div class="stat"><div class="stat-num" id="ear-total">0</div><div class="stat-label">こたえた数</div></div>
+      </div>
+      <p class="center mt-1"><button class="play-inline" id="ear-reset" style="border-color:var(--ink-3);color:var(--ink-3)">記録をリセット</button></p>
+    </div>
+  </section>
+
+  <!-- ============ うたってチェック ============ -->
+  <section class="tab-panel" id="tab-sing" role="tabpanel">
+    <div class="panel">
+      <h2 class="panel-title">うたってチェック — 声の音程をリアルタイム判定</h2>
+      <div class="controls">
+        <div class="control-group">
+          <span class="control-label">調</span>
+          <select class="select" id="sing-key"></select>
+        </div>
+        <div class="control-group">
+          <span class="control-label">モード</span>
+          <div class="seg" id="sing-mode">
+            <button data-v="practice" class="active">れんしゅう</button>
+            <button data-v="challenge">チャレンジ</button>
+          </div>
+        </div>
+        <button class="btn btn-primary btn-sm" id="sing-mic">🎙 マイクをON</button>
+      </div>
+      <div class="quiz-stage">
+        <div class="quiz-status" id="sing-keyname"></div>
+        <div class="quiz-big" id="sing-target">ド</div>
+        <div class="quiz-status" id="sing-status">目標の階名を選んで、「ドを聴く」→ 声で当ててみよう</div>
+        <div class="mt-1">
+          <button class="btn btn-ghost btn-sm" id="sing-do">ドを聴く</button>
+          <button class="btn btn-ghost btn-sm" id="sing-hear">目標の音をこっそり聴く</button>
+        </div>
+      </div>
+      <div class="syl-row" id="sing-choose" aria-label="目標をえらぶ"></div>
+      <div class="gauge" aria-hidden="true">
+        <div class="gauge-zone"></div>
+        <div class="gauge-needle" id="sing-needle" style="opacity:0"></div>
+      </div>
+      <div class="gauge-labels"><span>♭ ひくい</span><span>ぴったり</span><span>♯ たかい</span></div>
+      <div class="sing-readout" id="sing-readout">マイクをONにすると、ここに検出された音が表示されます</div>
+      <div class="quiz-stats" id="sing-stats" style="display:none">
+        <div class="stat"><div class="stat-num" id="sing-hit">0</div><div class="stat-label">せいこう</div></div>
+        <div class="stat"><div class="stat-num" id="sing-streakN">0</div><div class="stat-label">れんぞく</div></div>
+      </div>
+      <p class="small muted mt-1">マイクの音はブラウザの中だけで処理され、どこにも送信・録音されません。オクターブはどこで歌ってもOK。</p>
+    </div>
+  </section>
+
+  <!-- ============ メロディ ============ -->
+  <section class="tab-panel" id="tab-melody" role="tabpanel">
+    <div class="panel">
+      <h2 class="panel-title">メロディ — 同じドレミが、どの調でも歌える</h2>
+      <div class="controls">
+        <div class="control-group">
+          <span class="control-label">曲</span>
+          <select class="select" id="mel-song"></select>
+        </div>
+        <div class="control-group">
+          <span class="control-label">調</span>
+          <select class="select" id="mel-key"></select>
+        </div>
+        <div class="control-group">
+          <span class="control-label">テンポ</span>
+          <input type="range" id="mel-tempo" min="60" max="160" value="104" style="width:120px">
+          <span class="small muted" id="mel-bpm">104</span>
+        </div>
+      </div>
+      <div class="controls">
+        <button class="btn btn-primary" id="mel-play">▶ 再生</button>
+        <button class="btn btn-ghost" id="mel-shuffle">🎲 ちがう調で再生</button>
+        <label class="switch">
+          <input type="checkbox" id="mel-quiz">
+          <span class="track"></span>
+          <span class="switch-label">階名をかくして曲あてクイズ</span>
+        </label>
+      </div>
+      <div class="melody-tokens" id="mel-tokens"></div>
+      <div class="syl-row" id="mel-choices" style="display:none"></div>
+      <p class="small muted" id="mel-info"></p>
+    </div>
+  </section>
+
+  <div class="note-box mt-3">
+    <b>つかいかたのコツ:</b> ①キーボードで調の「地図」を確かめる → ②聴音クイズで耳を試す → ③うたってチェックで声を合わせる → ④メロディで曲にもどる。
+    毎日5分、調は毎回変えること。くわしくは<a href="learn.html#ch7">4週間の練習メニュー</a>へ。
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-brand">ドは、どこへでも</div>
+    <p>合唱のための移動ド練習サイト。すべての機能は無料で、ブラウザだけで動きます。</p>
+    <nav aria-label="フッター">
+      <a href="index.html">ホーム</a>
+      <a href="learn.html">教科書</a>
+    </nav>
+  </div>
+</footer>
+
+<script type="module" src="js/site.js"></script>
+<script type="module" src="js/playground.js"></script>
+</body>
+</html>

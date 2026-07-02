@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>教科書 — 移動ドの完全ガイド | ドは、どこへでも</title>
+<meta name="description" content="固定ドとの違い、音の役割、ハモリの物理、短調のラ読み、ハンドサイン、4週間練習メニューまで。音が鳴る移動ドの教科書。">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<script>document.documentElement.dataset.theme = localStorage.getItem('domove.theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+        <line x1="1" y1="22" x2="31" y2="22" stroke="var(--line-strong)" stroke-width="1.5"/>
+        <line x1="1" y1="27" x2="31" y2="27" stroke="var(--line-strong)" stroke-width="1.5"/>
+        <circle cx="7" cy="24.5" r="3.4" fill="var(--ink-3)"/>
+        <circle cx="16" cy="17" r="3.4" fill="var(--ink-3)" opacity=".75"/>
+        <circle cx="25.5" cy="8.5" r="4.6" fill="var(--accent)"/>
+      </svg>
+      ドは、どこへでも
+    </a>
+    <nav class="site-nav" aria-label="メイン">
+      <a href="learn.html" class="active">まなぶ</a>
+      <a href="playground.html">あそぶ</a>
+      <button class="theme-toggle" type="button" aria-label="テーマ切り替え"></button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap-narrow">
+
+  <section class="hero" style="padding-bottom:10px">
+    <p class="hero-kicker">TEXTBOOK</p>
+    <h1>移動ドの教科書</h1>
+    <p class="hero-lead">
+      読むだけの教科書ではありません。すべての章で<strong>音が鳴ります</strong>。
+      イヤホンかスピーカーを用意して、耳と一緒に読み進めてください。所要時間はおよそ20分です。
+    </p>
+    <div class="toc">
+      <strong>もくじ</strong>
+      <ol>
+        <li><a href="#ch1">ドレミには、2つの流儀がある</a></li>
+        <li><a href="#ch2">移動ドは「役割」を歌う</a></li>
+        <li><a href="#ch3">なぜ合唱に効くのか — ハモリの物理</a></li>
+        <li><a href="#ch4">階名の全カタログ</a></li>
+        <li><a href="#ch5">短調は「ラ」から始まる</a></li>
+        <li><a href="#ch6">手で覚える — ハンドサイン</a></li>
+        <li><a href="#ch7">4週間の練習メニュー</a></li>
+        <li><a href="#ch8">よくある質問</a></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ 第1章 ============ -->
+  <section class="chapter" id="ch1">
+    <p class="chapter-num">CHAPTER 01</p>
+    <h2>ドレミには、2つの流儀がある</h2>
+    <p>
+      多くの人が最初に出会う「ドレミ」は、ピアノの鍵盤に貼りついた名前です。
+      まんなかのドはいつもド、その右のレはいつもレ。これは<strong>固定ド</strong>——音の「住所」を呼ぶ流儀で、
+      実体はイタリア語の音名(Do, Re, Mi…)です。楽器を操作するには、この住所がとても便利です。
+    </p>
+    <p>
+      もうひとつの流儀が<strong>移動ド</strong>です。こちらの「ド」は住所ではなく、<strong>音階の主人公(主音)の名前</strong>。
+      曲がト長調ならソの位置に、変ホ長調ならミ♭の位置に、「ド」が引っ越します。
+      つまり移動ドの階名は、音の高さではなく<strong>音階の中での役割</strong>を呼んでいるのです。
+    </p>
+    <div class="demo-box">
+      <div class="demo-title">聴きくらべ — ト長調の「きらきら星」を2つの流儀で読む</div>
+      <p class="small muted">同じ演奏です。下の読み(移動ド)は、ハ長調のときとまったく同じになることに注目。</p>
+      <div class="control-label" style="margin-bottom:4px">固定ドで読むと(音の住所)</div>
+      <div class="melody-tokens" id="cmp-fixed"></div>
+      <div class="control-label" style="margin-bottom:4px">移動ドで読むと(音の役割)</div>
+      <div class="melody-tokens" id="cmp-movable"></div>
+      <button class="play-inline" data-play="compare">ト長調で再生</button>
+      <button class="play-inline" data-play="compare-c">参考:ハ長調で再生</button>
+    </div>
+    <p>
+      どちらが正しい、という話ではありません。<strong>固定ドは楽器のための言葉、移動ドは耳のための言葉</strong>。
+      そして合唱には鍵盤がありません。押せば正しい音が出る装置を持たない私たちは、
+      音と音の<em>関係</em>だけを頼りに歌います。だから合唱では、関係そのものを名付ける移動ドが強いのです。
+    </p>
+    <div class="note-box">
+      <b>用語メモ:</b>「音名」= 絶対的な高さの名前(C・D・E / ハ・ニ・ホ)。「階名」= 音階内の役割の名前(移動ドのドレミ)。
+      このサイトでは混乱を避けるため、高さはC・D・E、役割はドレミで呼び分けます。
+    </div>
+  </section>
+
+  <!-- ============ 第2章 ============ -->
+  <section class="chapter" id="ch2">
+    <p class="chapter-num">CHAPTER 02</p>
+    <h2>移動ドは「役割」を歌う</h2>
+    <p>
+      調性のある音楽には、重力があります。すべての音は多かれ少なかれ「ド」に引かれていて、
+      その引かれ方の違いが、各音の<strong>性格</strong>になります。
+      下のボタンで、ドの和音を聴いてから各音を鳴らしてみてください。「浮いた感じ」「帰りたい感じ」が聴こえてきます。
+    </p>
+    <table class="simple">
+      <thead><tr><th>階名</th><th>性格</th><th>聴く</th></tr></thead>
+      <tbody>
+        <tr><td><span class="syl-badge syl-do">ド</span></td><td>家。すべての音がここに帰る。完全な安定。</td><td><button class="play-inline" data-play="degree" data-deg="0">鳴らす</button></td></tr>
+        <tr><td><span class="syl-badge syl-re">レ</span></td><td>一歩ふみ出した音。上のミにも下のドにも行ける通り道。</td><td><button class="play-inline" data-play="degree" data-deg="1">鳴らす</button></td></tr>
+        <tr><td><span class="syl-badge syl-mi">ミ</span></td><td>晴れた安定。長調の「明るさ」はこの音が決めている。</td><td><button class="play-inline" data-play="degree" data-deg="2">鳴らす</button></td></tr>
+        <tr><td><span class="syl-badge syl-fa">ファ</span></td><td>ミに寄りかかりたがる音。やわらかな引力。</td><td><button class="play-inline" data-play="degree" data-deg="3">鳴らす</button></td></tr>
+        <tr><td><span class="syl-badge syl-so">ソ</span></td><td>ドの次に安定した支柱。音楽の背骨。</td><td><button class="play-inline" data-play="degree" data-deg="4">鳴らす</button></td></tr>
+        <tr><td><span class="syl-badge syl-la">ラ</span></td><td>やわらかく、少し切ない。短調ではこの音が主役になる。</td><td><button class="play-inline" data-play="degree" data-deg="5">鳴らす</button></td></tr>
+        <tr><td><span class="syl-badge syl-ti">シ</span></td><td>ドに帰りたくてたまらない音(導音)。最強の引力。</td><td><button class="play-inline" data-play="degree" data-deg="6">鳴らす</button></td></tr>
+      </tbody>
+    </table>
+    <div class="demo-box">
+      <div class="demo-title">実験 — 「シ」の引力を体感する</div>
+      <p class="small muted">音階を上っていき、シで止めます。むずむずしたら、あなたの耳はもう移動ドを聴いています。</p>
+      <button class="play-inline" data-play="gravity" data-variant="stop">シで止める</button>
+      <button class="play-inline" data-play="gravity" data-variant="resolve">ドまで歌いきる</button>
+    </div>
+    <p>
+      大事なのは、この性格が<strong>どの調でも変わらない</strong>ことです。
+      ニ長調のシも、変ロ長調のシも、同じようにドへ帰りたがる。
+      移動ドで歌うとは、音程を「高さ」ではなく「意味」で覚えるということ。
+      意味は12調ぶん暗記する必要がなく、たった1セットで済みます。
+    </p>
+  </section>
+
+  <!-- ============ 第3章 ============ -->
+  <section class="chapter" id="ch3">
+    <p class="chapter-num">CHAPTER 03</p>
+    <h2>なぜ合唱に効くのか — ハモリの物理</h2>
+    <p>
+      合唱のハーモニーは「度数」でできています。ソプラノがミ、アルトがドなら長3度。
+      テノールがソを支えれば、そこに主和音が立ち上がる。
+      移動ドで歌う合唱団は、<strong>自分がいまドから何度の位置にいるか</strong>を全員が知っています。
+      これが「はまる」ハモリの正体です。
+    </p>
+    <h3>理系の入口 — ハモるとは、整数比になること</h3>
+    <p>
+      音の正体は空気の振動で、高さは周波数(Hz)で決まります。
+      2つの音が心地よく響くのは、周波数が<strong>簡単な整数比</strong>になるとき。
+      ドとソは 2:3、ドとミは 4:5、ドミソの和音は 4:5:6。
+      比が単純なほど波形の周期が揃い、うなり(音の濁り)が消えます。
+    </p>
+    <p>
+      ピアノの調律(平均律)は、12の調をすべて弾けるようにするため、
+      この純粋な比を少しずつ<em>ずらして</em>あります。とくに長3度は純正より約14セントも広い。
+      でも合唱は楽器に縛られないので、その場で純正な比に「寄せる」ことができます。
+      下の実験で、うなりが消える瞬間を聴いてください。
+    </p>
+    <div class="demo-box">
+      <div class="demo-title">実験 — うなりが消える瞬間(ヘッドホン推奨)</div>
+      <p class="small muted">ドとミを同時に鳴らします。ピアノと同じ「平均律のミ」はわずかに濁り(うなり)、純正な「4:5のミ」はすっと透明になります。</p>
+      <button class="play-inline" data-play="ratio" data-variant="et3">平均律の長3度</button>
+      <button class="play-inline" data-play="ratio" data-variant="just3">純正の長3度 (4:5)</button>
+      <button class="play-inline" data-play="ratio" data-variant="just5">純正の完全5度 (2:3)</button>
+      <button class="play-inline" data-play="ratio" data-variant="triad">純正のドミソ (4:5:6)</button>
+    </div>
+    <p>
+      度数が聴こえている歌い手は、この整数比へ自分の声を寄せられます。
+      「ミをちょっと低めに取る」という合唱の口伝は、実は 4:5 という物理の話だったのです。
+      移動ドは、その度数感覚を毎日の練習で育てる、いちばん確実な道具です。
+    </p>
+  </section>
+
+  <!-- ============ 第4章 ============ -->
+  <section class="chapter" id="ch4">
+    <p class="chapter-num">CHAPTER 04</p>
+    <h2>階名の全カタログ</h2>
+    <p>
+      基本の7音は、おなじみの <span class="syl-badge syl-do">ド</span> <span class="syl-badge syl-re">レ</span> <span class="syl-badge syl-mi">ミ</span> <span class="syl-badge syl-fa">ファ</span> <span class="syl-badge syl-so">ソ</span> <span class="syl-badge syl-la">ラ</span> <span class="syl-badge syl-ti">シ</span>。
+      これに半音上げ・下げの読みが加わります(コダーイ式)。まずは7音で十分ですが、一覧として置いておきます。
+    </p>
+    <table class="simple">
+      <thead><tr><th></th><th colspan="2">半音上がると</th><th colspan="2">半音下がると</th></tr></thead>
+      <tbody>
+        <tr><td><b>ド</b> do</td><td>di</td><td>ディ</td><td colspan="2" class="muted">—</td></tr>
+        <tr><td><b>レ</b> re</td><td>ri</td><td>リ</td><td>ra</td><td>ラ°(下ろしたレ)</td></tr>
+        <tr><td><b>ミ</b> mi</td><td colspan="2" class="muted">—</td><td>me</td><td>メ</td></tr>
+        <tr><td><b>ファ</b> fa</td><td>fi</td><td>フィ</td><td colspan="2" class="muted">—</td></tr>
+        <tr><td><b>ソ</b> so</td><td>si</td><td>スィ</td><td>se</td><td>セ</td></tr>
+        <tr><td><b>ラ</b> la</td><td>li</td><td>ルィ</td><td>le</td><td>レ°(下ろしたラ)</td></tr>
+        <tr><td><b>シ</b> ti</td><td colspan="2" class="muted">—</td><td>te</td><td>テ</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">
+      <b>現場メモ:</b> カタカナは音の区別に限界があるため(ri と li など)、実際の合唱団では「♯ソ」「♭シ」のように読んだり、
+      幹音の読みのまま音だけ半音動かす団も多くあります。厳密さより、<b>団の中で揃っていること</b>が大切です。
+    </div>
+    <div class="demo-box">
+      <div class="demo-title">聴く — 半音をぜんぶ並べた「クロマチック階名」</div>
+      <div class="melody-tokens" id="chroma-tokens"></div>
+      <button class="play-inline" data-play="chromatic">上行で再生</button>
+    </div>
+  </section>
+
+  <!-- ============ 第5章 ============ -->
+  <section class="chapter" id="ch5">
+    <p class="chapter-num">CHAPTER 05</p>
+    <h2>短調は「ラ」から始まる</h2>
+    <p>
+      イ短調の曲に出会ったとき、ドはどこに置くべきでしょうか。
+      このサイトでは、コダーイの伝統にならって<strong>短調の主音を「ラ」と読む</strong>流儀(ラ短調読み)を採用します。
+      イ短調なら、ドはハ長調と同じCの位置のまま。主音だけがラに変わります。
+    </p>
+    <p>理由は2つあります。</p>
+    <p>
+      <strong>1. 調号と一致する。</strong>イ短調とハ長調は同じ7音でできた親子(平行調)です。
+      ドの位置を動かさなければ、楽譜の調号を見た瞬間にドが決まり、長短の行き来(転調)でも読み替えが起きません。<br>
+      <strong>2. 半音の位置が保たれる。</strong>階名の要は「ミ‐ファ」「シ‐ド」の半音です。ラ読みなら短調でも半音は同じ名前の間に来るので、音程の感覚をそのまま使い回せます。
+    </p>
+    <div class="demo-box">
+      <div class="demo-title">聴きくらべ — 同じ7音から生まれる長調と短調</div>
+      <p class="small muted">どちらも白鍵だけ。始まる場所(重心)が変わるだけで、世界の明るさが変わります。</p>
+      <button class="play-inline" data-play="scale" data-variant="major">ハ長調:ドレミファソラシド</button>
+      <button class="play-inline" data-play="scale" data-variant="minor">イ短調:ラシドレミファソラ</button>
+      <button class="play-inline" data-play="scale" data-variant="minorharm">和声的短音階:ソが「スィ」に上がる</button>
+    </div>
+    <div class="note-box">
+      <b>もうひとつの流派:</b> 短調の主音をドと読む「ド短調読み」も存在し、優れた実践者がいます。
+      どちらでも相対音感は育ちますが、合唱の現場では調号との相性がよいラ読みが広く使われています。
+    </div>
+  </section>
+
+  <!-- ============ 第6章 ============ -->
+  <section class="chapter" id="ch6">
+    <p class="chapter-num">CHAPTER 06</p>
+    <h2>手で覚える — ハンドサイン</h2>
+    <p>
+      19世紀イギリスのジョン・カーウェンが広め、コダーイ・メソッドで世界に定着した<strong>ハンドサイン</strong>。
+      階名を手の形で示しながら歌うと、音程が「からだの高さ」として記憶され、
+      指導者は声を出さずに合唱団へ音を渡せるようになります。
+    </p>
+    <div class="handsigns" id="handsigns"></div>
+    <p class="small muted">※ 簡略図です。ドをみぞおちの高さに置き、音が上がるにつれて手も上げていきます。</p>
+    <h3>あそび方</h3>
+    <p>
+      <strong>ひとりで:</strong> 音階をサインしながら歌う。慣れたら「ド→ミ→ソ→ド」のような跳躍を。<br>
+      <strong>ふたりで:</strong> 相手が出したサインを歌う。交代でどうぞ——プレイグラウンドの<a href="playground.html#sing">うたってチェック</a>が審判になります。<br>
+      <strong>合唱団で:</strong> 指導者が両手で2つのサインを出せば、その場で2部のハモリ練習になります。
+    </p>
+  </section>
+
+  <!-- ============ 第7章 ============ -->
+  <section class="chapter" id="ch7">
+    <p class="chapter-num">CHAPTER 07</p>
+    <h2>4週間の練習メニュー</h2>
+    <p>1日5分。それだけで4週間後には、知らない曲の楽譜がドレミで聴こえはじめます。</p>
+    <div class="cards">
+      <div class="card">
+        <div class="card-num">W1</div>
+        <h3>地図を手に入れる</h3>
+        <p><a href="playground.html#keyboard">キーボード</a>で毎日ちがう調を選び、音階とドミソドを弾いて歌う。ドローンを鳴らしながらだと効果倍増。</p>
+      </div>
+      <div class="card">
+        <div class="card-num">W2</div>
+        <h3>耳をひらく</h3>
+        <p><a href="playground.html#ear">聴音クイズ</a>のレベル1(ド・ミ・ソ)から。正答率8割でレベル2へ。調は「ランダム」のままで——それが移動ドの練習です。</p>
+      </div>
+      <div class="card">
+        <div class="card-num">W3</div>
+        <h3>声をあわせる</h3>
+        <p><a href="playground.html#sing">うたってチェック</a>で狙った階名に声を当てる。±25セントに入ればOK。ハンドサインを添えると定着が速い。</p>
+      </div>
+      <div class="card">
+        <div class="card-num">W4</div>
+        <h3>曲にもどる</h3>
+        <p><a href="playground.html#melody">メロディ</a>を知らない調で再生し、階名で追いかける。仕上げはいま練習中の合唱曲——自分のパートを階名で歌ってみてください。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第8章 ============ -->
+  <section class="chapter" id="ch8">
+    <p class="chapter-num">CHAPTER 08</p>
+    <h2>よくある質問</h2>
+    <details class="faq">
+      <summary>固定ドで育ちました。いまさら移動ドに切り替えられますか?</summary>
+      <div class="faq-body">
+        切り替えではなく<b>併用</b>だと考えてください。高さの名前(音名)と役割の名前(階名)は別の道具です。
+        おすすめは、高さを C・D・E(または ハ・ニ・ホ)で呼び、ドレミを役割専用にする分業。
+        最初の2週間は違和感がありますが、「翻訳」ではなく「別の言語」として並行して使ううちに馴染みます。
+      </div>
+    </details>
+    <details class="faq">
+      <summary>絶対音感があります。移動ドは邪魔になりませんか?</summary>
+      <div class="faq-body">
+        絶対音感は高さのラベルを教えてくれますが、和音の中での<b>機能</b>までは教えてくれません。
+        移動ドはその欠けたレイヤーを足すものなので、むしろ補完関係です。
+        絶対音感の持ち主こそ、階名をローマ字(do, re, mi)や数字(1, 2, 3)で歌うと混線が起きにくくなります。
+      </div>
+    </details>
+    <details class="faq">
+      <summary>ピアノを弾くときはどうすればいい?</summary>
+      <div class="faq-body">
+        楽器の操作は固定ド(音名)のままでかまいません。移動ドは「耳と声」のための道具です。
+        むしろピアノが弾ける人は、伴奏を鳴らしながら階名で歌えるので、上達がいちばん速いグループです。
+      </div>
+    </details>
+    <details class="faq">
+      <summary>曲の途中で転調したら、ドも動くのですか?</summary>
+      <div class="faq-body">
+        動きます。そして、それこそが移動ドの真価です。「ここで世界の重心が動いた」と体で感じ取る練習になるからです。
+        実務的には、新しい調のドを確認して読み替えます(共通音を橋にすると滑らかです)。
+        転調を聴き取れる耳は、合唱の音程トラブルの多く——転調後にぶら下がる、戻れない——を予防します。
+      </div>
+    </details>
+    <details class="faq">
+      <summary>音痴なんですが、それでも大丈夫?</summary>
+      <div class="faq-body">
+        「音痴」と呼ばれる状態の大半は、声帯ではなく<b>照準合わせの経験不足</b>です。
+        <a href="playground.html#sing">うたってチェック</a>は、あなたの声のズレをリアルタイムで見える化します。
+        ズレが見えれば直せます。±50セントから始めて、少しずつ的を狭めてください。
+      </div>
+    </details>
+    <details class="faq">
+      <summary>指導者です。授業や練習で使ってもいい?</summary>
+      <div class="faq-body">
+        ぜひ。すべて無料・登録不要・ブラウザのみで動きます。
+        プロジェクタにキーボードを映して全員で歌う、聴音クイズを個人のスマホで宿題にする、
+        ウォームアップにドローン+音階を使う、などの実践例があります。改変・再配布も自由です(オープンソース)。
+      </div>
+    </details>
+
+    <div class="center mt-3">
+      <a class="btn btn-primary" href="playground.html">プレイグラウンドで練習をはじめる</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-brand">ドは、どこへでも</div>
+    <p>合唱のための移動ド練習サイト。すべての機能は無料で、ブラウザだけで動きます。</p>
+    <nav aria-label="フッター">
+      <a href="index.html">ホーム</a>
+      <a href="playground.html">プレイグラウンド</a>
+    </nav>
+  </div>
+</footer>
+
+<script type="module" src="js/site.js"></script>
+<script type="module" src="js/learn.js"></script>
+</body>
+</html>

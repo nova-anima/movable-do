@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ドは、どこへでも — 移動ドの教科書とプレイグラウンド</title>
+<meta name="description" content="合唱のための「移動ド」を、無料で、ブラウザだけで身につける。聴音クイズ・マイク歌唱チェック・移調キーボードつきのオープンな音楽教育サイト。">
+<meta property="og:title" content="ドは、どこへでも — 移動ドの教科書とプレイグラウンド">
+<meta property="og:description" content="合唱のための「移動ド」を、無料で、ブラウザだけで。聴音クイズ・歌唱チェック・移調キーボードつき。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nova-anima.github.io/movable-do/">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<script>document.documentElement.dataset.theme = localStorage.getItem('domove.theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="ドは、どこへでも — ホーム">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+        <line x1="1" y1="22" x2="31" y2="22" stroke="var(--line-strong)" stroke-width="1.5"/>
+        <line x1="1" y1="27" x2="31" y2="27" stroke="var(--line-strong)" stroke-width="1.5"/>
+        <circle cx="7" cy="24.5" r="3.4" fill="var(--ink-3)"/>
+        <circle cx="16" cy="17" r="3.4" fill="var(--ink-3)" opacity=".75"/>
+        <circle cx="25.5" cy="8.5" r="4.6" fill="var(--accent)"/>
+      </svg>
+      ドは、どこへでも
+    </a>
+    <nav class="site-nav" aria-label="メイン">
+      <a href="learn.html">まなぶ</a>
+      <a href="playground.html">あそぶ</a>
+      <button class="theme-toggle" type="button" aria-label="テーマ切り替え"></button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true">
+      <svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
+        <g stroke="var(--line)" stroke-width="1.5">
+          <line x1="0" y1="150" x2="1200" y2="150"/>
+          <line x1="0" y1="230" x2="1200" y2="230"/>
+          <line x1="0" y1="310" x2="1200" y2="310"/>
+          <line x1="0" y1="390" x2="1200" y2="390"/>
+          <line x1="0" y1="470" x2="1200" y2="470"/>
+        </g>
+        <circle class="float" cx="850" cy="150" r="17" fill="var(--c-so)" opacity=".8"/>
+        <circle class="float" cx="950" cy="270" r="21" fill="var(--c-mi)" opacity=".8"/>
+        <circle class="float" cx="1060" cy="190" r="15" fill="var(--c-la)" opacity=".75"/>
+        <circle class="float" cx="1130" cy="350" r="24" fill="var(--c-do)" opacity=".85"/>
+        <circle class="float" cx="760" cy="430" r="13" fill="var(--c-fa)" opacity=".7"/>
+        <circle class="float" cx="990" cy="470" r="16" fill="var(--c-re)" opacity=".7"/>
+        <circle class="float" cx="700" cy="240" r="10" fill="var(--c-ti)" opacity=".6"/>
+      </svg>
+    </div>
+    <div class="wrap">
+      <p class="hero-kicker">MOVABLE DO — 合唱のための相対音感</p>
+      <h1 class="hero-title">ドは、<span class="accent">動く</span>。</h1>
+      <p class="hero-lead">
+        「ド」は鍵盤の位置ではなく、音楽の<strong>重心</strong>の名前。
+        どの調に移っても、耳はおなじ地図で歌える——それが移動ドです。
+        合唱に効く相対音感を、無料で、ブラウザだけで。
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#demo">30秒で体験する</a>
+        <a class="btn btn-ghost" href="learn.html">教科書を読む</a>
+        <a class="btn btn-ghost" href="playground.html">プレイグラウンド</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 30秒体験 ================= -->
+  <section class="section section-alt" id="demo">
+    <div class="wrap">
+      <p class="section-kicker">DEMO — まずは耳で</p>
+      <h2>高さはちがう。<br>でも、ぜんぶ同じ「ドドソソララソ」。</h2>
+      <p class="muted" style="max-width:36em">
+        きらきら星を、3つのちがう調で鳴らします。音の高さは変わるのに、
+        歌っている「ドレミ」はまったく同じ——移動ドの世界へようこそ。
+      </p>
+      <div class="panel mt-2">
+        <div class="controls">
+          <span class="control-label">調をえらんで再生</span>
+          <div class="seg" id="demo-keys" role="group" aria-label="調の選択"></div>
+        </div>
+        <div class="melody-tokens" id="demo-tokens" aria-live="off"></div>
+        <p class="small muted mt-0" id="demo-caption">♪ どの調でも、階名(ドレミ)は変わりません。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= コンセプト ================= -->
+  <section class="section">
+    <div class="wrap">
+      <p class="section-kicker">WHY — なぜ移動ドか</p>
+      <h2>音楽には重力がある。<br>その中心の名前が「ド」。</h2>
+      <div class="cards">
+        <div class="card">
+          <div class="card-num">01</div>
+          <h3>音の「役割」を歌う</h3>
+          <p>移動ドの階名は音の高さではなく役割の名前。「シ→ド」の引力、「ソ」の安定。役割が聴こえると、初見の楽譜も外さなくなります。</p>
+        </div>
+        <div class="card">
+          <div class="card-num">02</div>
+          <h3>12の調が、1つの地図に</h3>
+          <p>固定ドでは調ごとに別世界。移動ドなら、どんな調も同じ「ドレミの地図」で歌えます。移調も転調も、こわくない。</p>
+        </div>
+        <div class="card">
+          <div class="card-num">03</div>
+          <h3>ハモリの理由がわかる</h3>
+          <p>合唱のハーモニーは「度数」でできています。自分がいまドから何度上にいるか——それが聴こえると、和音は自然に「はまり」ます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 入口 ================= -->
+  <section class="section section-alt">
+    <div class="wrap">
+      <p class="section-kicker">START — 2つの入口</p>
+      <h2>読んでもいい。あそんでもいい。</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>📖 教科書 — まなぶ</h3>
+          <p>
+            固定ドと移動ドのちがいから、合唱に効く理由、周波数比の科学、ハンドサイン、
+            4週間の練習メニューまで。文系も理系も、それぞれの入口から。
+          </p>
+          <p class="mt-2"><a class="btn btn-primary btn-sm" href="learn.html">教科書をひらく</a></p>
+        </div>
+        <div class="card">
+          <h3>🎹 プレイグラウンド — あそぶ</h3>
+          <p>
+            どの調でもドレミが光る移調キーボード、聴音クイズ、マイクで音程判定する
+            「うたってチェック」、名曲の移調プレーヤー。ぜんぶブラウザで、いますぐ。
+          </p>
+          <p class="mt-2"><a class="btn btn-primary btn-sm" href="playground.html">あそびにいく</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 思想 ================= -->
+  <section class="section">
+    <div class="wrap-narrow">
+      <p class="section-kicker">MANIFESTO</p>
+      <h2>この知識は、無料であるべきだ。</h2>
+      <p>
+        相対音感は、才能ではなく<strong>技術</strong>です。そして技術は、正しい順番で練習すれば誰でも身につきます。
+        高い月謝も、専用の教材も、本当は要りません。必要なのは、鳴らせる楽器と、確かめられる耳と、続けられる仕組み。
+        その3つを、このサイトはぜんぶブラウザの中に置きました。
+      </p>
+      <p>
+        広告なし、登録なし、課金なし。ソースコードも公開しています。
+        部活の朝練で、放課後の音楽室で、通勤電車のイヤホンで——「ド」を、どこへでも連れていってください。
+      </p>
+      <p class="pill-note mt-1">無料・登録不要・オープンソース</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-brand">ドは、どこへでも</div>
+    <p>合唱のための移動ド練習サイト。すべての機能は無料で、ブラウザだけで動きます。</p>
+    <nav aria-label="フッター">
+      <a href="learn.html">教科書</a>
+      <a href="playground.html">プレイグラウンド</a>
+      <a href="https://github.com/nova-anima/movable-do" id="foot-repo" rel="noopener">ソースコード (GitHub)</a>
+    </nav>
+    <p class="small">音源はWeb Audio APIによる合成。掲載楽曲はすべてパブリックドメインです。</p>
+  </div>
+</footer>
+
+<script type="module" src="js/site.js"></script>
+<script type="module" src="js/home.js"></script>
+</body>
+</html>
