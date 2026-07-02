@@ -613,6 +613,11 @@ details.faq .faq-body { padding: 0 20px 18px; color: var(--ink-2); font-size: .9
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
-  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important; /* 無限アニメを1回で止める(震え防止) */
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .hero-bg .float { animation: none !important; } /* 装飾の浮遊は完全停止 */
 }
